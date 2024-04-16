@@ -118,7 +118,7 @@ function adjust_size() {
     SVGs['partial_num'].setAttribute('stroke-width', 1);
     SVGs['partial_num'].setAttribute('stroke-linecap', 'round');
     SVGs['partial_num'].setAttribute('x', screen_W / 2 - W/2 + W/6);
-    SVGs['partial_num'].setAttribute('y', screen_H / 2 - H/2 + 3*H/7);
+    SVGs['partial_num'].setAttribute('y', screen_H / 2 - H/2 + H/12);
     SVGs['partial_num'].setAttribute('font-size', W / 15);
     SVGs['partial_num'].setAttribute('text-anchor', 'middle');
     var last = SVGs['partial_num'].lastChild;
@@ -130,7 +130,7 @@ function adjust_size() {
     SVGs['note'].setAttribute('stroke-width', 1);
     SVGs['note'].setAttribute('stroke-linecap', 'round');
     SVGs['note'].setAttribute('x', screen_W / 2 + W/3);
-    SVGs['note'].setAttribute('y', screen_H / 2 - H/2 + 3*H/7);
+    SVGs['note'].setAttribute('y', screen_H / 2 - H/2 + H/12);
     SVGs['note'].setAttribute('font-size', W / 15);
     SVGs['note'].setAttribute('text-anchor', 'middle');
     var textNode = document.createTextNode("");
