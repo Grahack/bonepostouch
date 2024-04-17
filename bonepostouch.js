@@ -122,7 +122,7 @@ function adjust_size() {
     SVGs['partial_num'].setAttribute('font-size', W / 15);
     SVGs['partial_num'].setAttribute('text-anchor', 'middle');
     var last = SVGs['partial_num'].lastChild;
-    if (last) SVGs['partial_num'].removeChild();
+    if (last) SVGs['partial_num'].removeChild(last);
     var textNode = document.createTextNode(partial);
     SVGs['partial_num'].appendChild(textNode);
 
