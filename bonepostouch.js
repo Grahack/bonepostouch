@@ -65,6 +65,10 @@ for (let i = 1; i <= 7; i++) {
     SVGs[name].addEventListener("mouseup", action(name));
 }
 for (let i = 1; i <= 4; i++) {
+    var name = 'text_partial_' + i;
+    SVGs[name] = document.createElementNS(NS, 'text');
+}
+for (let i = 1; i <= 4; i++) {
     var name = 'rect_partial_' + i;
     SVGs[name] = document.createElementNS(NS, 'rect');
     SVGs[name].addEventListener("mouseup", action(name));
@@ -192,8 +196,45 @@ function adjust_size() {
                 SVGs[name].setAttribute('y', y2);
                 break;
         }
-        SVGs[name].setAttribute('width', W / 3);
+        SVGs[name].setAttribute('width', W / 3 - margin);
         SVGs[name].setAttribute('height', (H-2*margin)/7);
+    }
+
+    var x1 = screen_W / 2 - W / 2 + W / 6;
+    var x2 = x1 + 2 * (W-margin) / 3;
+    var y1 = 4 * H/7 + + H/14 + margin;
+    var y2 = 6 * H/7 + + H/14 + margin;
+    for (let i = 1; i <= 4; i++) {
+        var name = 'text_partial_' + i;
+        SVGs[name].setAttribute('fill', 'black');
+        SVGs[name].setAttribute('stroke', 'black');
+        SVGs[name].setAttribute('stroke-width', 1);
+        switch (i) {
+            case 1:
+                SVGs[name].setAttribute('x', x1);
+                SVGs[name].setAttribute('y', y1);
+                break;
+            case 2:
+                SVGs[name].setAttribute('x', x2);
+                SVGs[name].setAttribute('y', y1);
+                break;
+            case 3:
+                SVGs[name].setAttribute('x', x1);
+                SVGs[name].setAttribute('y', y2);
+                break;
+            case 4:
+                SVGs[name].setAttribute('x', x2);
+                SVGs[name].setAttribute('y', y2);
+                break;
+        }
+        SVGs[name].setAttribute('font-size', W / 15);
+        SVGs[name].setAttribute('text-anchor', 'middle');
+        var last = SVGs[name].lastChild;
+        if (last) SVGs[name].removeChild(last);
+        var txt = "+";
+        if (i >= 3) txt = "-";
+        var textNode = document.createTextNode(txt);
+        SVGs[name].appendChild(textNode);
     }
 }
 
