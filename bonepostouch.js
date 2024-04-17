@@ -58,17 +58,17 @@ var SVGs = {
 for (let i = 1; i <= 2; i++) {
     var name = 'line_pos_' + i;
     SVGs[name] = document.createElementNS(NS, 'line');
-} 
+}
 for (let i = 1; i <= 7; i++) {
     var name = 'rect_pos_' + i;
     SVGs[name] = document.createElementNS(NS, 'rect');
     SVGs[name].addEventListener("mouseup", action(name));
-} 
+}
 for (let i = 1; i <= 4; i++) {
     var name = 'rect_partial_' + i;
     SVGs[name] = document.createElementNS(NS, 'rect');
     SVGs[name].addEventListener("mouseup", action(name));
-} 
+}
 // list of coeffs
 // 0 0.12 0.26 0.42 0.59 0.78 1
 
@@ -146,7 +146,7 @@ function adjust_size() {
         SVGs[name].setAttribute('stroke', 'black');
         SVGs[name].setAttribute('stroke-width', 8);
         SVGs[name].setAttribute('stroke-linecap', 'round');
-    } 
+    }
 
     for (let i = 1; i <= 7; i++) {
         var name = 'rect_pos_' + (8-i);
@@ -160,7 +160,7 @@ function adjust_size() {
         SVGs[name].setAttribute('y', (i-1) * H/7 + margin);
         SVGs[name].setAttribute('width', W / 3);
         SVGs[name].setAttribute('height', (H-2*margin)/7);
-    } 
+    }
 
     var x1 = screen_W / 2 - W / 2 + margin;
     var x2 = x1 + 2 * (W-margin) / 3;
@@ -194,7 +194,7 @@ function adjust_size() {
         }
         SVGs[name].setAttribute('width', W / 3);
         SVGs[name].setAttribute('height', (H-2*margin)/7);
-    } 
+    }
 }
 
 // add all the elements to the main frame
