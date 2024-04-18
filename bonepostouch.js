@@ -244,6 +244,6 @@ for (const [key, value] of Object.entries(SVGs)) {
 }
 
 document.body.appendChild(main_frame);
-window.addEventListener('resize', adjust_size, true);
+window.addEventListener('resize', adjust_size);
 adjust_size();
 console.log(SVGs);
