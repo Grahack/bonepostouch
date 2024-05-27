@@ -22,6 +22,28 @@ var notes = [
     // partial 10
     ["E", "Eb/D#", "D", "C#/Db", "C", "B", "Bb/A#"]];
 
+var partial_names = [
+    // partial 1
+    "Root",
+    // partial 2
+    "5th",
+    // partial 3
+    "8ve",
+    // partial 4
+    "+3rd",
+    // partial 5
+    "+5th",
+    // partial 6
+    "+b7",
+    // partial 7
+    "++",
+    // partial 8
+    "++2",
+    // partial 9
+    "++3",
+    // partial 10
+    "++#4"];
+
 function action(name) {
     const lastIndex = name.lastIndexOf('_');
     const type = name.slice(0, lastIndex);
@@ -40,6 +62,7 @@ function action(name) {
                 if (number >= 3 && partial > 1)  partial = partial - 1;
                 console.log("Partial num:", partial);
                 SVGs['partial_num'].firstChild.textContent = partial;
+                SVGs['partial_name'].firstChild.textContent = partial_names[partial-1];
                 SVGs['note'].firstChild.textContent = "";
             };
     }
@@ -51,6 +74,7 @@ var main_frame = document.createElementNS(NS, 'svg');
 var SVGs = {
     main_line : document.createElementNS(NS, 'line'),
     partial_num : document.createElementNS(NS, 'text'),
+    partial_name : document.createElementNS(NS, 'text'),
     note : document.createElementNS(NS, 'text'),
     main_rect : document.createElementNS(NS, 'rect')
 };
@@ -129,6 +153,18 @@ function adjust_size() {
     if (last) SVGs['partial_num'].removeChild(last);
     var textNode = document.createTextNode(partial);
     SVGs['partial_num'].appendChild(textNode);
+
+    SVGs['partial_name'].setAttribute('stroke', 'black');
+    SVGs['partial_name'].setAttribute('stroke-width', 1);
+    SVGs['partial_name'].setAttribute('stroke-linecap', 'round');
+    SVGs['partial_name'].setAttribute('x', screen_W / 2 - W/2 + W/6);
+    SVGs['partial_name'].setAttribute('y', screen_H / 2 - H/2 + H/7);
+    SVGs['partial_name'].setAttribute('font-size', W / 15);
+    SVGs['partial_name'].setAttribute('text-anchor', 'middle');
+    var last = SVGs['partial_name'].lastChild;
+    if (last) SVGs['partial_name'].removeChild(last);
+    var textNode = document.createTextNode(partial_names[partial-1]);
+    SVGs['partial_name'].appendChild(textNode);
 
     SVGs['note'].setAttribute('stroke', 'black');
     SVGs['note'].setAttribute('stroke-width', 1);
