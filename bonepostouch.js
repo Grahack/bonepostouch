@@ -1,3 +1,5 @@
+var show_zones = true;
+
 var partial = 1;
 
 var notes = [
@@ -44,6 +46,19 @@ var partial_names = [
     // partial 10
     "++#4"];
 
+function hide(name) {
+    SVGs[name].setAttribute('fill-opacity', 0);
+    SVGs[name].setAttribute('stroke', 'none');
+}
+
+function hide_zones() {
+    if (show_zones) {
+        for (let i = 1; i <= 7; i++) hide('rect_pos_' + (8-i));
+        for (let i = 1; i <= 4; i++) hide('rect_partial_' + i);
+        show_zones = false;
+    }
+}
+
 function action(name) {
     const lastIndex = name.lastIndexOf('_');
     const type = name.slice(0, lastIndex);
@@ -51,10 +66,12 @@ function action(name) {
     switch (type) {
         case 'rect_pos':
             return function () {
+                hide_zones();
                 SVGs['note'].firstChild.textContent = notes[partial-1][number-1];
             };
         case 'rect_partial':
             return function () {
+                hide_zones();
                 // partial navigation buttons:
                 // #1  up  #2
                 // #3 down #4
@@ -191,10 +208,9 @@ function adjust_size() {
     for (let i = 1; i <= 7; i++) {
         var name = 'rect_pos_' + (8-i);
         SVGs[name].setAttribute('fill', 'red');
-        SVGs[name].setAttribute('fill-opacity', 0);
-        SVGs[name].setAttribute('stroke', 'none');
+        SVGs[name].setAttribute('fill-opacity', 0.2);
+        SVGs[name].setAttribute('stroke', 'black');
         SVGs[name].setAttribute('stroke-width', 1);
-        SVGs[name].setAttribute('stroke-dasharray', '5, 15');
         SVGs[name].setAttribute('stroke-linecap', 'round');
         SVGs[name].setAttribute('x', screen_W / 2 - W / 6);
         SVGs[name].setAttribute('y', (i-1) * H/7 + margin);
@@ -209,10 +225,9 @@ function adjust_size() {
     for (let i = 1; i <= 4; i++) {
         var name = 'rect_partial_' + i;
         SVGs[name].setAttribute('fill', 'red');
-        SVGs[name].setAttribute('fill-opacity', 0);
-        SVGs[name].setAttribute('stroke', 'none');
+        SVGs[name].setAttribute('fill-opacity', 0.2);
+        SVGs[name].setAttribute('stroke', 'black');
         SVGs[name].setAttribute('stroke-width', 1);
-        SVGs[name].setAttribute('stroke-dasharray', '5,15');
         SVGs[name].setAttribute('stroke-linecap', 'round');
         switch (i) {
             case 1:
