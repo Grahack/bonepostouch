@@ -4,25 +4,25 @@ var partial = 1;
 
 var notes = [
     // partial 1
-    ["Bb/A#", "A", "Ab/G#", "G", "F#/Gb", "F", "E"],
+    ["Bb/A#", "A", "Ab/G#", "G", "Gb/F#", "F", "E"],
     // partial 2
-    ["F", "E", "Eb/D#", "D", "C#/Db", "C", "B"],
+    ["F", "E", "Eb/D#", "D", "Db/C#", "C", "Cb/B"],
     // partial 3
-    ["Bb/A#", "A", "Ab/G#", "G", "F#/Gb", "F", "E"],
+    ["Bb/A#", "A", "Ab/G#", "G", "Gb/F#", "F", "E"],
     // partial 4
-    ["D", "C#/Db", "C", "B", "Bb/A#", "A", "Ab/G#"],
+    ["D", "Db/C#", "C", "Cb/B", "Bb/A#", "A", "Ab/G#"],
     // partial 5
-    ["F", "E", "Eb/D#", "D", "C#/Db", "C", "B"],
+    ["F", "E", "Eb/D#", "D", "Db/C#", "C", "Cb/B"],
     // partial 6
-    ["Ab/G#", "G", "F#/Gb", "F", "E", "Eb/D#", "D"],
+    ["Ab/G#", "G", "Gb/F#", "F", "E", "Eb/D#", "D"],
     // partial 7
-    ["Bb/A#", "A", "Ab/G#", "G", "F#/Gb", "F", "E"],
+    ["Bb/A#", "A", "Ab/G#", "G", "Gb/F#", "F", "E"],
     // partial 8
-    ["C", "B", "Bb/A#", "A", "Ab/G#", "G", "Gb/F#"],
+    ["C", "Cb/B", "Bb/A#", "A", "Ab/G#", "G", "Gb/F#"],
     // partial 9
-    ["D", "C#/Db", "C", "B", "Bb/A#", "A", "Ab/G#"],
+    ["D", "Db/C#", "C", "Cb/B", "Bb/A#", "A", "Ab/G#"],
     // partial 10
-    ["E", "Eb/D#", "D", "C#/Db", "C", "B", "Bb/A#"]];
+    ["E", "Eb/D#", "D", "Db/C#", "C", "Cb/B", "Bb/A#"]];
 
 var partial_names = [
     // partial 1
