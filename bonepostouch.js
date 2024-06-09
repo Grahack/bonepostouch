@@ -292,6 +292,7 @@ function adjust_size() {
         if (last) SVGs[name].removeChild(last);
         var txt = "+";
         if (i >= 3) txt = "-";
+        if (i == 2 || i == 4) txt = txt + " !";
         var textNode = document.createTextNode(txt);
         SVGs[name].appendChild(textNode);
     }
