@@ -60,6 +60,14 @@ function hide_zones() {
     }
 }
 
+function display_note(partial, position) {
+    if (!partial) {
+        SVGs['note'].firstChild.textContent = "";
+    } else {
+        SVGs['note'].firstChild.textContent = notes[partial-1][position-1];
+    }
+}
+
 function action(name) {
     const lastIndex = name.lastIndexOf('_');
     const type = name.slice(0, lastIndex);
@@ -68,7 +76,7 @@ function action(name) {
         case 'rect_pos':
             return function () {
                 hide_zones();
-                SVGs['note'].firstChild.textContent = notes[partial-1][number-1];
+                display_note(partial, number);
                 last_pos = number;
             };
         case 'rect_partial':
@@ -81,14 +89,11 @@ function action(name) {
                 if (number >= 3 && partial > 1)  partial = partial - 1;
                 console.log("Partial num:", partial);
                 // #2 and #4 will directly display the note at the last pos
-                let note_name = "";
-                if (number == 2 || number == 4) {
-                    note_name = notes[partial-1][last_pos-1];
-                }
+                if (number == 1 || number == 3) display_note(false, 0);
+                else display_note(partial, last_pos);
                 SVGs['partial_num'].firstChild.textContent = partial;
                 SVGs['partial_name'].firstChild.textContent = partial_names[partial-1];
 
-                SVGs['note'].firstChild.textContent = note_name;
             };
     }
 }
