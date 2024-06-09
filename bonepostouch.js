@@ -79,12 +79,12 @@ function action(name) {
                 // #3 down #4
                 if (number <= 2 && partial < 10) partial = partial + 1;
                 if (number >= 3 && partial > 1)  partial = partial - 1;
+                console.log("Partial num:", partial);
                 // #2 and #4 will directly display the note at the last pos
                 let note_name = "";
                 if (number == 2 || number == 4) {
                     note_name = notes[partial-1][last_pos-1];
                 }
-                console.log("Partial num:", partial);
                 SVGs['partial_num'].firstChild.textContent = partial;
                 SVGs['partial_name'].firstChild.textContent = partial_names[partial-1];
 
