@@ -1,6 +1,7 @@
 var show_zones = true;
 
 var partial = 1;
+var last_pos = 1;
 
 var notes = [
     // partial 1
@@ -68,6 +69,7 @@ function action(name) {
             return function () {
                 hide_zones();
                 SVGs['note'].firstChild.textContent = notes[partial-1][number-1];
+                last_pos = number;
             };
         case 'rect_partial':
             return function () {
@@ -77,10 +79,16 @@ function action(name) {
                 // #3 down #4
                 if (number <= 2 && partial < 10) partial = partial + 1;
                 if (number >= 3 && partial > 1)  partial = partial - 1;
+                // #2 and #4 will directly display the note at the last pos
+                let note_name = "";
+                if (number == 2 || number == 4) {
+                    note_name = notes[partial-1][last_pos-1];
+                }
                 console.log("Partial num:", partial);
                 SVGs['partial_num'].firstChild.textContent = partial;
                 SVGs['partial_name'].firstChild.textContent = partial_names[partial-1];
-                SVGs['note'].firstChild.textContent = "";
+
+                SVGs['note'].firstChild.textContent = note_name;
             };
     }
 }
