@@ -170,7 +170,7 @@ function adjust_size() {
     SVGs['partial_num'].setAttribute('stroke', 'black');
     SVGs['partial_num'].setAttribute('stroke-width', 1);
     SVGs['partial_num'].setAttribute('stroke-linecap', 'round');
-    SVGs['partial_num'].setAttribute('x', screen_W / 2 - W/2 + W/6);
+    SVGs['partial_num'].setAttribute('x', screen_W / 2 - W/3);
     SVGs['partial_num'].setAttribute('y', screen_H / 2 - H/2 + H/12);
     SVGs['partial_num'].setAttribute('font-size', W / 15);
     SVGs['partial_num'].setAttribute('text-anchor', 'middle');
@@ -182,7 +182,7 @@ function adjust_size() {
     SVGs['partial_name'].setAttribute('stroke', 'black');
     SVGs['partial_name'].setAttribute('stroke-width', 1);
     SVGs['partial_name'].setAttribute('stroke-linecap', 'round');
-    SVGs['partial_name'].setAttribute('x', screen_W / 2 - W/2 + W/6);
+    SVGs['partial_name'].setAttribute('x', screen_W / 2 - W/3);
     SVGs['partial_name'].setAttribute('y', screen_H / 2 - H/2 + H/7);
     SVGs['partial_name'].setAttribute('font-size', W / 15);
     SVGs['partial_name'].setAttribute('text-anchor', 'middle');
