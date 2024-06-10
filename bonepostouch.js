@@ -62,9 +62,9 @@ function hide_zones() {
 
 function display_note(partial, position) {
     if (!partial) {
-        SVGs['note'].firstChild.textContent = "";
+        SVGs['note_name'].firstChild.textContent = "";
     } else {
-        SVGs['note'].firstChild.textContent = notes[partial-1][position-1];
+        SVGs['note_name'].firstChild.textContent = notes[partial-1][position-1];
     }
 }
 
@@ -105,7 +105,7 @@ var SVGs = {
     main_line : document.createElementNS(NS, 'line'),
     partial_num : document.createElementNS(NS, 'text'),
     partial_name : document.createElementNS(NS, 'text'),
-    note : document.createElementNS(NS, 'text'),
+    note_name : document.createElementNS(NS, 'text'),
     main_rect : document.createElementNS(NS, 'rect')
 };
 
@@ -196,15 +196,15 @@ function adjust_size() {
     var textNode = document.createTextNode(partial_names[partial-1]);
     SVGs['partial_name'].appendChild(textNode);
 
-    SVGs['note'].setAttribute('stroke', 'black');
-    SVGs['note'].setAttribute('stroke-width', 1);
-    SVGs['note'].setAttribute('stroke-linecap', 'round');
-    SVGs['note'].setAttribute('x', screen_W / 2 - W/3);
-    SVGs['note'].setAttribute('y', screen_H / 2 - H/2 + H/12);
-    SVGs['note'].setAttribute('font-size', W / 15);
-    SVGs['note'].setAttribute('text-anchor', 'middle');
+    SVGs['note_name'].setAttribute('stroke', 'black');
+    SVGs['note_name'].setAttribute('stroke-width', 1);
+    SVGs['note_name'].setAttribute('stroke-linecap', 'round');
+    SVGs['note_name'].setAttribute('x', screen_W / 2 - W/3);
+    SVGs['note_name'].setAttribute('y', screen_H / 2 - H/2 + H/12);
+    SVGs['note_name'].setAttribute('font-size', W / 15);
+    SVGs['note_name'].setAttribute('text-anchor', 'middle');
     var textNode = document.createTextNode("");
-    SVGs['note'].appendChild(textNode);
+    SVGs['note_name'].appendChild(textNode);
 
     for (let i = 1; i <= 2; i++) {
         var name = 'line_pos_' + i;
